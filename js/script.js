@@ -19,3 +19,20 @@ for (let i = 0; i < numberBtn.length; i++) {
     console.log(btn);
   });
 }
+
+// Aggiungo event listener per gli operatori + - x /
+// Seleziono i pulsanti degli operatori tranne =
+const signBtn = document.querySelectorAll(".operators button:not(.orange");
+// Inizio ciclo for
+for (let i = 0; i < signBtn.length; i++) {
+  const btn = signBtn[i];
+  // event listener per i btn
+  btn.addEventListener("click", function () {
+    // Salvo il primo numero e resetto il display a 0 dopo aver premuto l'operatore per digitare il secondo numero
+    firstNum = parseInt(document.getElementById("result").innerText);
+    console.log(`Numero digitato: ${firstNum}`);
+    // Reset
+    document.getElementById("result").innerText = "0";
+    console.log("reset display");
+  });
+}
