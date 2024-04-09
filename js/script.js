@@ -22,17 +22,34 @@ for (let i = 0; i < numberBtn.length; i++) {
 
 // Aggiungo event listener per gli operatori + - x /
 // Seleziono i pulsanti degli operatori tranne =
-const signBtn = document.querySelectorAll(".operators button:not(.orange");
+const signBtn = document.querySelectorAll(".operators button:not(.orange)");
 // Inizio ciclo for
 for (let i = 0; i < signBtn.length; i++) {
   const btn = signBtn[i];
   // event listener per i btn
   btn.addEventListener("click", function () {
-    // Salvo il primo numero e resetto il display a 0 dopo aver premuto l'operatore per digitare il secondo numero
+    // Salvo il primo numero e l'operatore , dopodichè resetto il display a 0
     firstNum = parseInt(document.getElementById("result").innerText);
-    console.log(`Numero digitato: ${firstNum}`);
+    sign = btn.innerText;
+    console.log(`Primo numero digitato: "${firstNum}" ` + ` Operatore digitato: "${sign}"`);
     // Reset
     document.getElementById("result").innerText = "0";
     console.log("reset display");
   });
 }
+
+// Aggiungo event listener per =, che attiverà la function per l'operazione, restituendo il risultato
+// Seleziono il pulsante = 
+const resultBtn = document.querySelector(".orange");
+resultBtn.addEventListener("click", function(){
+    // Salvo il secondo numero
+    secondNum = parseInt(document.getElementById("result").innerText);
+    console.log(`Secondo numero digitato: ${secondNum}`);
+
+    // ESECUZIONE della function dell'operazione
+    let result = operations(sign, firstNum, secondNum);
+    console.log(`Risultato dell'operazione: ${result}`);
+
+    // STAMPA DISPLAY RISULTATO
+    document.getElementById("result").innerText = result;
+})
