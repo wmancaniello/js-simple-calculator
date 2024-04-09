@@ -33,7 +33,7 @@ function operations(sign, num1, num2) {
     result = num1 - num2;
   }
   //  Moltiplicazione
-  else if (sign === "×") {
+  else if (sign === "x") {
     result = num1 * num2;
   }
   //  Divisione
