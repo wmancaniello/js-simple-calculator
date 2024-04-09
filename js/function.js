@@ -7,11 +7,10 @@ function displayNumber(number) {
   const display = document.getElementById("result");
 
   //  Check del display, se c'è già lo 0
-  if (display === "0") {
-    document.getElementById("result").innerText = number;
+  if (display.innerText === "0") {
+    display.innerText = number;
   } else {
-    //  Altrimenti procedo con la concatenazione dei numeri
-    document.getElementById("result").innerText += number;
+    display.innerText += number;
   }
 }
 
@@ -34,11 +33,11 @@ function operations(sign, num1, num2) {
     result = num1 - num2;
   }
   //  Moltiplicazione
-  else if (sign === "&#215;") {
+  else if (sign === "×") {
     result = num1 * num2;
   }
   //  Divisione
-  else if (sign === "&#247;") {
+  else if (sign === "÷") {
     if (num2 === 0) {
       result = "ERROR";
     } else {
